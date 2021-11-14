@@ -1,6 +1,15 @@
 import React from 'react';
 import { DiGithubBadge } from 'react-icons/di';
-import { SiReadthedocs, SiSonarcloud } from 'react-icons/all';
+import {
+  AiOutlineCodeSandbox,
+  FiDatabase,
+  FiExternalLink,
+  FiPackage,
+  RiFileHistoryLine,
+  SiReadthedocs,
+  SiSonarcloud,
+  VscTools,
+} from 'react-icons/all';
 import {
   ContentRow,
   ContentSpace,
@@ -23,7 +32,9 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow>
-        <h2>Package Releases</h2>
+        <h2>
+          <FiPackage /> Package Releases
+        </h2>
         <RepoBlock>
           <RepoBlockItem
             projectName="Core Package"
@@ -44,7 +55,9 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow>
-        <h2>Links</h2>
+        <h2>
+          <FiExternalLink /> Links
+        </h2>
         <LinkBlock>
           <LinkBlockItem
             title="GitHub"
@@ -68,11 +81,9 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow>
-        <h2>Bundle overview</h2>
-      </ContentRow>
-      <ContentSpace />
-      <ContentRow>
-        <h2>Database-Bundles</h2>
+        <h2>
+          <FiDatabase /> Database-Bundles
+        </h2>
         <RepoBlock>
           <RepoBlockItem
             projectName="Postgresql Bundle"
@@ -93,7 +104,9 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow>
-        <h2>Logger-Bundles</h2>
+        <h2>
+          <RiFileHistoryLine /> Logger-Bundles
+        </h2>
         <RepoBlock>
           <RepoBlockItem
             projectName="Electron Log"
@@ -104,7 +117,9 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow>
-        <h2>Utils</h2>
+        <h2>
+          <VscTools /> Utils
+        </h2>
         <RepoBlock>
           <RepoBlockItem
             projectName="GLX Project Tool"
@@ -117,6 +132,25 @@ const Content: React.FC<any> = (props) => {
             description="@openapi annotation support for comment docs"
           />
         </RepoBlock>
+      </ContentRow>
+      <ContentSpace />
+      <ContentRow>
+        <h2>
+          <AiOutlineCodeSandbox /> Sandbox
+        </h2>
+        <iframe
+          src="https://codesandbox.io/embed/grandlinex-express-kernel-7bib3?fontsize=14&hidenavigation=1&theme=dark"
+          style={{
+            width: '100%',
+            height: '500px',
+            border: 0,
+            borderRadius: '4px',
+            overflow: 'hidden',
+          }}
+          title="GrandlineX-Express-Kernel"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        />
       </ContentRow>
     </>
   );
