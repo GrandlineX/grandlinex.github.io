@@ -6,6 +6,11 @@ type ContentProps = {
 
 const RepoBlock: React.FC<ContentProps> = (props) => {
   const { children } = props;
-  return <div className="glx-repo--block">{children}</div>;
+  return (
+    <>
+      <div className="glx-repo--block">{children}</div>
+      <br />
+    </>
+  );
 };
 export default RepoBlock;

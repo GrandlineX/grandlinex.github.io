@@ -98,13 +98,17 @@ code {
 
 .glx-button{
   background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 8px;
 }
 
 .glx-content--row{
   text-align: center;
   width: calc(100% - 32px);
   padding: 16px;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0,0,0,0.99);
 }
 
 .glx-content--space{
@@ -119,6 +123,7 @@ pre code{
   background-color: rgba(0,0,0,0.5);
   border-radius: 4px;
   padding: 8px;
+  overflow-wrap: anywhere;
 }
 
 .glx-repo--block{
@@ -127,7 +132,7 @@ pre code{
   justify-content: center;
 }
 .glx-repo--block-item{
-  width: 400px;
+  width: 440px;
   background-color: rgba(255,255,255,0.1);
   margin: 4px;
 }
