@@ -1,5 +1,5 @@
 # Project Page
 
-- [Website]("https://grandlinex.github.io")
+- [Website](https://grandlinex.github.io)
 
-- [Docs]("https://grandlinex.github.io/docs")
+- [Docs](https://grandlinex.github.io/docs)
