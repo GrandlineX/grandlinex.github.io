@@ -5,6 +5,7 @@ import {
   FiDatabase,
   FiExternalLink,
   FiPackage,
+  MdAccountTree,
   RiFileHistoryLine,
   SiReadthedocs,
   SiSonarcloud,
@@ -20,6 +21,7 @@ import {
   RepoBlock,
 } from './components';
 import RepoBlockItem from './components/RepoBlockItem';
+import Badge from './components/Badge';
 
 const Content: React.FC<any> = (props) => {
   return (
@@ -40,16 +42,19 @@ const Content: React.FC<any> = (props) => {
             projectName="Core Package"
             projectKey="core"
             description="Dependency free base kernel module"
+            badges={['CORE']}
           />
           <RepoBlockItem
             projectName="Express Package"
             projectKey="kernel"
             description="ExpressJS - Kernel module"
+            badges={['KERNEL']}
           />
           <RepoBlockItem
             projectName="Electron Package"
             projectKey="e-kernel"
             description="ElectronJS - Kernel module"
+            badges={['E-KERNEL']}
           />
         </RepoBlock>
       </ContentRow>
@@ -82,6 +87,45 @@ const Content: React.FC<any> = (props) => {
       <ContentSpace />
       <ContentRow>
         <h2>
+          <MdAccountTree /> Package compatibility
+        </h2>
+        <div className="glx--comp">
+          <table>
+            <tr>
+              <th>Bundle badge</th>
+              <th>compatible to packages</th>
+            </tr>
+            <tr>
+              <td>
+                <Badge type="CORE" />
+              </td>
+              <td>
+                <Badge type="CORE" /> <Badge type="KERNEL" />{' '}
+                <Badge type="E-KERNEL" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Badge type="KERNEL" />
+              </td>
+              <td>
+                <Badge type="KERNEL" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <Badge type="E-KERNEL" />
+              </td>
+              <td>
+                <Badge type="E-KERNEL" />
+              </td>
+            </tr>
+          </table>
+        </div>
+      </ContentRow>
+      <ContentSpace />
+      <ContentRow>
+        <h2>
           <FiDatabase /> Database-Bundles
         </h2>
         <RepoBlock>
@@ -89,16 +133,33 @@ const Content: React.FC<any> = (props) => {
             projectName="Postgresql Bundle"
             projectKey="bundle-postgresql"
             description="Postgresql support using pg"
+            badges={['CORE']}
           />
           <RepoBlockItem
             projectName="SQLight Bundle"
             projectKey="bundle-sqlight"
             description="SQLight support using better-sqlite3"
+            badges={['CORE']}
           />
           <RepoBlockItem
             projectName="Redis Bundle"
             projectKey="bundle-redis"
             description="Redis cache support using redis"
+            badges={['CORE']}
+          />
+        </RepoBlock>
+      </ContentRow>
+      <ContentSpace />
+      <ContentRow>
+        <h2>
+          <RiFileHistoryLine /> Auth-Bundles
+        </h2>
+        <RepoBlock>
+          <RepoBlockItem
+            projectName="Simple Auth"
+            projectKey="bundle-simple-auth"
+            description="Authorization & user management bundle"
+            badges={['KERNEL']}
           />
         </RepoBlock>
       </ContentRow>
@@ -112,6 +173,7 @@ const Content: React.FC<any> = (props) => {
             projectName="Electron Log"
             projectKey="bundle-elogger"
             description="Advanced logging support using electron-log"
+            badges={['CORE']}
           />
         </RepoBlock>
       </ContentRow>

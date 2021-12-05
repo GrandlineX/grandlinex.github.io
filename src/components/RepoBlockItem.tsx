@@ -1,13 +1,15 @@
 import React from 'react';
+import Badge, { BadgeType } from './Badge';
 
 type ContentProps = {
   projectName: string;
   projectKey: string;
   description?: string;
+  badges?: BadgeType[];
 };
 
 const RepoBlockItem: React.FC<ContentProps> = (props) => {
-  const { projectKey, description, projectName } = props;
+  const { projectKey, description, projectName, badges } = props;
   return (
     <div className="glx-repo--block-item">
       <h3>{projectName}</h3>
@@ -35,6 +37,11 @@ const RepoBlockItem: React.FC<ContentProps> = (props) => {
           />
         </a>
       </p>
+      <p>
+        {badges?.map((badge) => {
+          return <Badge type={badge} />;
+        })}
+      </p>
       <pre>
         <code>$ npm install @grandlinex/{projectKey} </code>
       </pre>
@@ -44,5 +51,6 @@ const RepoBlockItem: React.FC<ContentProps> = (props) => {
 };
 RepoBlockItem.defaultProps = {
   description: '',
+  badges: undefined,
 };
 export default RepoBlockItem;
