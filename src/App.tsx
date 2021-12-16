@@ -11,6 +11,7 @@ import {
   SiSonarcloud,
   VscTools,
 } from 'react-icons/all';
+import drawing from './img/drawio.svg';
 import {
   ContentRow,
   ContentSpace,
@@ -126,6 +127,20 @@ const Content: React.FC<any> = (props) => {
       <ContentSpace />
       <ContentRow>
         <h2>
+          <MdAccountTree /> Basic structure
+        </h2>
+        <div className="glx--comp">
+          <img
+            src={drawing}
+            alt="logo"
+            width="100%"
+            style={{ maxWidth: '800px' }}
+          />
+        </div>
+      </ContentRow>
+      <ContentSpace />
+      <ContentRow>
+        <h2>
           <FiDatabase /> Database-Bundles
         </h2>
         <RepoBlock>
@@ -151,8 +166,32 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow>
+        <h2>More Bundles</h2>
+      </ContentRow>
+      <ContentSpace />
+      <ContentRow>
         <h2>
-          <RiFileHistoryLine /> Auth-Bundles
+          <RiFileHistoryLine /> Core Bundles
+        </h2>
+        <RepoBlock>
+          <RepoBlockItem
+            projectName="MultiLang"
+            projectKey="bundle-multilang"
+            description="Multilang support for GrandLineX"
+            badges={['CORE']}
+          />
+          <RepoBlockItem
+            projectName="Electron Log"
+            projectKey="bundle-elogger"
+            description="Advanced logging support using electron-log"
+            badges={['CORE']}
+          />
+        </RepoBlock>
+      </ContentRow>
+      <ContentSpace />
+      <ContentRow>
+        <h2>
+          <RiFileHistoryLine /> Express-Kernel Bundles
         </h2>
         <RepoBlock>
           <RepoBlockItem
@@ -163,20 +202,7 @@ const Content: React.FC<any> = (props) => {
           />
         </RepoBlock>
       </ContentRow>
-      <ContentSpace />
-      <ContentRow>
-        <h2>
-          <RiFileHistoryLine /> Logger-Bundles
-        </h2>
-        <RepoBlock>
-          <RepoBlockItem
-            projectName="Electron Log"
-            projectKey="bundle-elogger"
-            description="Advanced logging support using electron-log"
-            badges={['CORE']}
-          />
-        </RepoBlock>
-      </ContentRow>
+
       <ContentSpace />
       <ContentRow>
         <h2>
