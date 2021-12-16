@@ -224,7 +224,7 @@ const Content: React.FC<any> = (props) => {
       <ContentSpace />
       <ContentRow>
         <h2>
-          <AiOutlineCodeSandbox /> Sandbox
+          <AiOutlineCodeSandbox /> Express-Kernel Sandbox
         </h2>
         <iframe
           src="https://codesandbox.io/embed/grandlinex-express-kernel-7bib3?fontsize=14&hidenavigation=1&theme=dark"
