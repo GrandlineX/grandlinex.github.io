@@ -23,6 +23,7 @@ import {
 } from './components';
 import RepoBlockItem from './components/RepoBlockItem';
 import Badge from './components/Badge';
+import SkeletonBlockItem from './components/SkeletonBlockItem';
 
 const Content: React.FC<any> = (props) => {
   return (
@@ -123,6 +124,28 @@ const Content: React.FC<any> = (props) => {
             </tr>
           </table>
         </div>
+      </ContentRow>
+      <ContentSpace />
+      <ContentRow>
+        <h2>
+          <FiPackage /> Package Releases
+        </h2>
+        <RepoBlock>
+          <SkeletonBlockItem
+            projectName="Express Skeleton"
+            projectKey="skeleton-project"
+            gltoolKey="express"
+            description="ExpressJS - Skeleton Project"
+            badges={['KERNEL']}
+          />
+          <SkeletonBlockItem
+            projectName="Electron Skeleton"
+            projectKey="electron-skeleton-project"
+            description="ElectronJS - Skeleton Project"
+            gltoolKey="electron"
+            badges={['E-KERNEL']}
+          />
+        </RepoBlock>
       </ContentRow>
       <ContentSpace />
       <ContentRow>

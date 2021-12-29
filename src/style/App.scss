@@ -138,8 +138,19 @@ pre code{
   @extend .glx--transparent;
   width: 440px;
   margin: 4px;
+  .glx--icon-block{
+    a {
+      padding: 4px;
+    }
+  }
 }
 
+
+@media (max-width: 767px) {
+  .glx--hide-on-mobile{
+    display: none;
+  }
+}
 
 .glx--comp{
   @extend .glx--transparent;
