@@ -38,6 +38,7 @@
     min-width: 75%;
   }
   .title{
+    padding-top: 8px;
     flex-direction: row;
     display: flex;
     align-items: center;
@@ -49,6 +50,9 @@
     }
   }
 }
+.glx-content--row-smoke{
+  background: $glx-bg-light;
+}
 
 .glx-content--space{
   width: 100%;
@@ -58,12 +62,16 @@
 .glx-footer{
   background-color: $glx-bg-light;
   height: 210px;
+  font-family: 'IBM Plex Mono', sans-serif;
   a,a:active{
     color: $glx-bg-dark;
   }
   div{
     float: left;
     padding: 8px;
+  }
+  ul {
+    list-style-type: none;
   }
   button{
     padding: 8px;
@@ -147,4 +155,8 @@ pre code{
   .glx-description--text{
     font-size: 14pt;
   }
+}
+
+.glx-sandbox{
+  width: 90%;
 }

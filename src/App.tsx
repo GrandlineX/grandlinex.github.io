@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineCodeSandbox } from 'react-icons/all';
 import {
   ContentSpace,
   Footer,
@@ -52,7 +53,25 @@ const Content: React.FC<any> = (props) => {
         </FeatureBlock>
       </ContentRow>
       <ContentSpace />
-
+      <ContentRow smoke icon={<AiOutlineCodeSandbox />} title="CodeSandbox">
+        <FeatureBlock>
+          <div className="glx-sandbox">
+            <iframe
+              src="https://codesandbox.io/embed/grandlinex-express-kernel-7bib3?fontsize=14&hidenavigation=1&theme=dark"
+              style={{
+                width: '100%',
+                height: '500px',
+                border: 0,
+                borderRadius: '4px',
+                overflow: 'hidden',
+              }}
+              title="GrandlineX-Express-Kernel"
+              allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+              sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+            />
+          </div>
+        </FeatureBlock>
+      </ContentRow>
       <ContentSpace />
       <ContentRow
         icon={<img height="30px" src={logog} alt="logo" />}

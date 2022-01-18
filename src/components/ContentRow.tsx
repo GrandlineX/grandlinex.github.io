@@ -4,23 +4,25 @@ type ContentProps = {
   children?: ReactNode;
   title?: string;
   icon?: ReactNode;
+  smoke?: boolean;
+  hideLine?: boolean;
 };
 
 const ContentRow: React.FC<ContentProps> = (props) => {
-  const { children, title, icon } = props;
+  const { hideLine, children, title, icon, smoke } = props;
   return (
-    <div className="glx-content--row">
+    <div
+      className={`glx-content--row${smoke ? ' glx-content--row-smoke' : ''}`}
+    >
       {title ? (
         <>
           <div className="title">
             {icon ? <span>{icon}</span> : null}
             <span>{title}</span>
           </div>
-          <hr />
         </>
-      ) : (
-        <hr />
-      )}
+      ) : null}
+      {hideLine ? null : <hr />}
       <div className="glx-content--row-body">
         <br />
 
@@ -33,6 +35,8 @@ ContentRow.defaultProps = {
   children: undefined,
   title: undefined,
   icon: undefined,
+  smoke: undefined,
+  hideLine: undefined,
 };
 
 export default ContentRow;

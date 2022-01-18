@@ -204,7 +204,7 @@ const feature: FeatureType[] = [
   {
     name: 'Open Source',
     icon: <BsCodeSquare />,
-    description: `Core Packages under BSD-3 licence.`,
+    description: `Core Packages with BSD-3 licence.`,
     dots: ['Join on GitHub'],
   },
 ];
@@ -266,13 +266,13 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
     repo: [
       {
         projectName: 'GLX-Project-Tool',
-        projectKey: 'bundle-project-tool',
+        projectKey: 'project-tool',
         description: 'Create and update GLX projects',
         badges: [],
       },
       {
         projectName: 'Docs-to-OpenAPI',
-        projectKey: 'bundle-docs-to-openapi',
+        projectKey: 'docs-to-openapi',
         description: '@openapi annotation support for comment docs',
         badges: [],
       },

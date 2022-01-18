@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.ff11f9de.chunk.css",
-    "main.js": "/static/js/main.f005940d.chunk.js",
-    "main.js.map": "/static/js/main.f005940d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.87501a49.js",
-    "runtime-main.js.map": "/static/js/runtime-main.87501a49.js.map",
-    "static/js/2.6842abf8.chunk.js": "/static/js/2.6842abf8.chunk.js",
-    "static/js/2.6842abf8.chunk.js.map": "/static/js/2.6842abf8.chunk.js.map",
-    "static/js/3.cdb1812d.chunk.js": "/static/js/3.cdb1812d.chunk.js",
-    "static/js/3.cdb1812d.chunk.js.map": "/static/js/3.cdb1812d.chunk.js.map",
+    "main.css": "/static/css/main.62ffafc4.chunk.css",
+    "main.js": "/static/js/main.18fa4617.chunk.js",
+    "main.js.map": "/static/js/main.18fa4617.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7faca11f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7faca11f.js.map",
+    "static/js/2.bfe3fd26.chunk.js": "/static/js/2.bfe3fd26.chunk.js",
+    "static/js/2.bfe3fd26.chunk.js.map": "/static/js/2.bfe3fd26.chunk.js.map",
+    "static/js/3.948e00b9.chunk.js": "/static/js/3.948e00b9.chunk.js",
+    "static/js/3.948e00b9.chunk.js.map": "/static/js/3.948e00b9.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.ff11f9de.chunk.css.map": "/static/css/main.ff11f9de.chunk.css.map",
-    "static/js/2.6842abf8.chunk.js.LICENSE.txt": "/static/js/2.6842abf8.chunk.js.LICENSE.txt",
-    "static/media/index.scss": "/static/media/black.02cc1a16.PNG",
-    "static/media/drawio.63e52ee6.svg": "/static/media/drawio.63e52ee6.svg",
-    "static/media/logo192.d60f9334.png": "/static/media/logo192.d60f9334.png"
+    "static/css/main.62ffafc4.chunk.css.map": "/static/css/main.62ffafc4.chunk.css.map",
+    "static/js/2.bfe3fd26.chunk.js.LICENSE.txt": "/static/js/2.bfe3fd26.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/static/media/IBMPlexSans-Regular.1525928a.ttf",
+    "static/media/ico--alt-bg-grey-transparent.3049a2af.svg": "/static/media/ico--alt-bg-grey-transparent.3049a2af.svg",
+    "static/media/ico--alt-bg-transparent.e83563e8.svg": "/static/media/ico--alt-bg-transparent.e83563e8.svg",
+    "static/media/ico-bg-transparent.e5f07dcd.svg": "/static/media/ico-bg-transparent.e5f07dcd.svg",
+    "static/media/structure.77b7e012.svg": "/static/media/structure.77b7e012.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.87501a49.js",
-    "static/js/2.6842abf8.chunk.js",
-    "static/css/main.ff11f9de.chunk.css",
-    "static/js/main.f005940d.chunk.js"
+    "static/js/runtime-main.7faca11f.js",
+    "static/js/2.bfe3fd26.chunk.js",
+    "static/css/main.62ffafc4.chunk.css",
+    "static/js/main.18fa4617.chunk.js"
   ]
 }
