@@ -1,5 +1,14 @@
-$primary-white : white;
-$primary-color : #161618;
-$primary-font : $primary-white;
-$primary-accent : lightblue;
-$primary-accent-hover : lightgreen;
+$glx-dark-accent01:#505B6B;
+$glx-dark-accent02:#434D5B;
+$glx-dark-accent03:#2C333D;
+$glx-dark-accent04:#272E38;
+$glx-dark-accent05:#242930;
+
+$glx-light-accent01:#F2F3F4;
+$glx-light-accent02:#D2D8E1;
+$glx-light-accent03:#909FB5;
+$glx-light-accent04:#808691;
+
+
+$glx-bg-light:$glx-light-accent01;
+$glx-bg-dark:$glx-dark-accent01;

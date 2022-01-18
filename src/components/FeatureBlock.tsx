@@ -8,7 +8,7 @@ const LinkBlock: React.FC<ContentProps> = (props) => {
   const { children } = props;
   return (
     <>
-      <div className="glx-repo--block">{children}</div>
+      <div className="glx-feature--block">{children}</div>
       <br />
     </>
   );

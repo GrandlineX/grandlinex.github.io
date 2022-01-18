@@ -4,8 +4,8 @@ import ContentRow from './ContentRow';
 import ContentSpace from './ContentSpace';
 import RepoBlock from './RepoBlock';
 import RepoBlockItem from './RepoBlockItem';
-import LinkBlock from './LinkBlock';
-import LinkBlockItem from './LinkBlockItem';
+import FeatureBlock from './FeatureBlock';
+import FeatureBlockItem from './FeatureBlockItem';
 
 export {
   Header,
@@ -14,6 +14,6 @@ export {
   ContentRow,
   RepoBlock,
   RepoBlockItem,
-  LinkBlock,
-  LinkBlockItem,
+  FeatureBlock,
+  FeatureBlockItem,
 };

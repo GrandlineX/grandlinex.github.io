@@ -1,62 +1,70 @@
 import React from 'react';
-import Badge, { BadgeType } from './Badge';
-import BaseLogo from '../img/BaseLogo';
+import { FaGithub, FaNpm, SiReadthedocs, SiSonarcloud } from 'react-icons/all';
+import { BadgeType } from './Badge';
+import RepoVersion from './RepoVersion';
+import { RepoType, SkeletonType } from '../content';
 
 type ContentProps = {
   projectName: string;
   projectKey: string;
-  gltoolKey: string;
   description?: string;
   badges?: BadgeType[];
 };
 
-const SkeletonBlockItem: React.FC<ContentProps> = (props) => {
-  const { projectKey, description, projectName, badges, gltoolKey } = props;
+const openNew = (
+  projectKey: string,
+  type: 'github' | 'docs' | 'sonar' | 'npm'
+) => {
+  let url = '';
+  switch (type) {
+    case 'sonar':
+      url = `https://sonarcloud.io/project/overview?id=GrandlineX_${projectKey}`;
+      break;
+    case 'github':
+      url = `https://github.com/GrandlineX/${projectKey}`;
+      break;
+    case 'docs':
+      url = `https://grandlinex.github.io/${projectKey}`;
+      break;
+    case 'npm':
+      url = `https://www.npmjs.com/package/@grandlinex/${projectKey}`;
+      break;
+    default:
+  }
+  window.open(url, '_blank');
+};
+
+const SkeletonBlockItem: React.FC<{ item: SkeletonType }> = (props) => {
+  const { item } = props;
+  const { projectKey, description, projectName, command, includes } = item;
   return (
     <div className="glx-repo--block-item">
-      <h3>{projectName}</h3>
-      <p>
-        <a href={`https://github.com/GrandlineX/${projectKey}`}>
-          <img
-            src={`https://badge.fury.io/gh/grandlinex%2F${projectKey}.svg`}
-            alt="version"
-          />
-        </a>
-      </p>
-      <p>
-        <img
-          src="https://img.shields.io/static/v1?label=type&message=Skeleton&color=blue&logo=DPD"
-          alt="version"
-        />
-      </p>
+      <h3 className="glx-mono">{projectName} </h3>
 
-      <p>
-        {badges?.map((badge) => {
-          return <Badge type={badge} />;
-        })}
-      </p>
+      <p className="glx-description">{description}</p>
+
       <pre className="glx--hide-on-mobile">
-        <code>$ gltool --template={gltoolKey} </code>
+        <code>{command} </code>
       </pre>
-      <p>{description}</p>
-      <p>
-        <a
-          href="https://grandlinex.github.io/docs/utils/#project-tool"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            alt="img"
-            height="24"
-            src={`https://img.shields.io/static/v1?label=&message=Install GLX-Tool&color=grey&logo=${BaseLogo}`}
-          />
-        </a>
-      </p>
+
+      {includes ? <p className="glx-description">Includes:</p> : null}
+      <ul>
+        {includes?.map((dot) => (
+          <li>{dot}</li>
+        ))}
+      </ul>
+
+      <div className="glx-card-footer--space" />
+      <div className="glx-card-footer">
+        <hr />
+        <div className="glx-button-grid">
+          <button type="submit" onClick={() => openNew(projectKey, 'github')}>
+            <FaGithub />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
-SkeletonBlockItem.defaultProps = {
-  description: '',
-  badges: undefined,
-};
+
 export default SkeletonBlockItem;

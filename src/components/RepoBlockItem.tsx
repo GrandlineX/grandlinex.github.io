@@ -1,6 +1,8 @@
 import React from 'react';
-import Badge, { BadgeType } from './Badge';
-import BaseLogo from '../img/BaseLogo';
+import { FaGithub, FaNpm, SiReadthedocs, SiSonarcloud } from 'react-icons/all';
+import { BadgeType } from './Badge';
+import RepoVersion from './RepoVersion';
+import { RepoType } from '../content';
 
 type ContentProps = {
   projectName: string;
@@ -9,60 +11,70 @@ type ContentProps = {
   badges?: BadgeType[];
 };
 
-const RepoBlockItem: React.FC<ContentProps> = (props) => {
-  const { projectKey, description, projectName, badges } = props;
+const openNew = (
+  projectKey: string,
+  type: 'github' | 'docs' | 'sonar' | 'npm'
+) => {
+  let url = '';
+  switch (type) {
+    case 'sonar':
+      url = `https://sonarcloud.io/project/overview?id=GrandlineX_${projectKey}`;
+      break;
+    case 'github':
+      url = `https://github.com/GrandlineX/${projectKey}`;
+      break;
+    case 'docs':
+      url = `https://grandlinex.github.io/${projectKey}`;
+      break;
+    case 'npm':
+      url = `https://www.npmjs.com/package/@grandlinex/${projectKey}`;
+      break;
+    default:
+  }
+  window.open(url, '_blank');
+};
+
+const RepoBlockItem: React.FC<{ item: RepoType }> = (props) => {
+  const { item } = props;
+  const { projectKey, description, projectName, badges, includes } = item;
   return (
     <div className="glx-repo--block-item">
-      <h3>{projectName}</h3>
-      <p className="glx--icon-block">
-        <a href={`https://github.com/GrandlineX/${projectKey}`}>
-          <img
-            src={`https://badge.fury.io/gh/grandlinex%2F${projectKey}.svg`}
-            alt="version"
-          />
-        </a>
+      <h3 className="glx-mono">{projectName} </h3>
 
-        <a href={`https://www.npmjs.com/package/@grandlinex/${projectKey}`}>
-          <img
-            src="https://img.shields.io/static/v1?label=npm&message=Package&color=red&logo=NPM"
-            alt="version"
-          />
-        </a>
-        <a href={`https://grandlinex.github.io/${projectKey}`}>
-          <img
-            src="https://img.shields.io/static/v1?label=doc&message=Latest&color=blue&logo=READTHEDOCS"
-            alt="version"
-          />
-        </a>
+      <p className="glx-mono">
+        Latest version: <RepoVersion projectKey={projectKey} />
       </p>
-
-      <p>
-        {badges?.map((badge) => {
-          return <Badge type={badge} />;
-        })}
-      </p>
+      <p className="glx-description">{description}</p>
       <pre className="glx--hide-on-mobile">
         <code>$ npm install @grandlinex/{projectKey} </code>
       </pre>
-      <p>{description}</p>
-      <p>
-        <a
-          href={`https://github.com/GrandlineX/${projectKey}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            alt="img"
-            height="24"
-            src={`https://img.shields.io/static/v1?label=&message=Go to Project&color=grey&logo=${BaseLogo}`}
-          />
-        </a>
-      </p>
+      {includes ? <p className="glx-description">Includes:</p> : null}
+      <ul>
+        {includes?.map((dot) => (
+          <li>{dot}</li>
+        ))}
+      </ul>
+
+      <div className="glx-card-footer--space" />
+      <div className="glx-card-footer">
+        <hr />
+        <div className="glx-button-grid">
+          <button type="submit" onClick={() => openNew(projectKey, 'github')}>
+            <FaGithub />
+          </button>
+          <button type="submit" onClick={() => openNew(projectKey, 'npm')}>
+            <FaNpm />
+          </button>
+          <button type="submit" onClick={() => openNew(projectKey, 'docs')}>
+            <SiReadthedocs />
+          </button>
+          <button type="submit" onClick={() => openNew(projectKey, 'sonar')}>
+            <SiSonarcloud />
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
-RepoBlockItem.defaultProps = {
-  description: '',
-  badges: undefined,
-};
+
 export default RepoBlockItem;
