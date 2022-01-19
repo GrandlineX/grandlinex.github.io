@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineCodeSandbox } from 'react-icons/all';
 import {
   ContentSpace,
@@ -7,21 +7,20 @@ import {
   RepoBlock,
   RepoBlockItem,
 } from './components';
-import logo from './img/ico--alt-bg-transparent.svg';
-import logog from './img/ico--alt-bg-grey-transparent.svg';
 import struct from './img/structure.svg';
 import ContentRow from './components/ContentRow';
 import FeatureBlock from './components/FeatureBlock';
 import FeatureBlockItem from './components/FeatureBlockItem';
 import { feature, mainRepo, otherRepo, skeletonRepo } from './content';
 import SkeletonBlockItem from './components/SkeletonBlockItem';
+import GIcon, { GIconType } from './img/GIcon';
 
 const Content: React.FC<any> = (props) => {
   return (
     <>
       <ContentSpace />
       <ContentRow
-        icon={<img height="30px" src={logog} alt="logo" />}
+        icon={<GIcon type="LOGO-TRANS" dark height="30px" />}
         title="Packages"
       >
         <RepoBlock>
@@ -32,7 +31,7 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow
-        icon={<img height="30px" src={logog} alt="logo" />}
+        icon={<GIcon type="LOGO-TRANS" dark height="30px" />}
         title="Features"
       >
         <FeatureBlock>
@@ -43,7 +42,7 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow
-        icon={<img height="30px" src={logog} alt="logo" />}
+        icon={<GIcon type="LOGO-TRANS" dark height="30px" />}
         title="Basic structure"
       >
         <FeatureBlock>
@@ -74,7 +73,7 @@ const Content: React.FC<any> = (props) => {
       </ContentRow>
       <ContentSpace />
       <ContentRow
-        icon={<img height="30px" src={logog} alt="logo" />}
+        icon={<GIcon type="LOGO-TRANS" dark height="30px" />}
         title="Skeleton Projects"
       >
         <RepoBlock>
@@ -87,7 +86,7 @@ const Content: React.FC<any> = (props) => {
         <>
           <ContentSpace />
           <ContentRow
-            icon={<img height="30px" src={logog} alt="logo" />}
+            icon={<GIcon type="LOGO-TRANS" dark height="30px" />}
             title={ob.cat}
           >
             <RepoBlock>
@@ -102,13 +101,38 @@ const Content: React.FC<any> = (props) => {
   );
 };
 const App: React.FC<any> = (props) => {
+  const [ico, setIco] = useState<number>(0);
+  const iList: GIconType[] = [
+    'LOGO-TRANS',
+    'LOGO-ALT-TRANS',
+    'CORE',
+    'CORE-M',
+    'KERNEL',
+    'KERNEL-M',
+    'E-KERNEL',
+    'E-KERNEL-M',
+  ];
+
+  useEffect(() => {
+    const int = setInterval(() => {
+      if (ico + 1 === iList.length) {
+        setIco(0);
+      } else {
+        setIco(ico + 1);
+      }
+    }, 5000);
+
+    return () => {
+      clearInterval(int);
+    };
+  });
   return (
     <>
       <Header />
       <div className="glx-content--spacer-header" />
       <div className="glx-preview">
         <div>
-          <img src={logo} alt="logo" />
+          <GIcon type={iList[ico]} height="240px" />
         </div>
         <div className="glx-mono">
           GrandLineX is an modular out-of-the-box framework written in

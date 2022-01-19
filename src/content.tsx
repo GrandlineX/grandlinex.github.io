@@ -14,13 +14,13 @@ import {
   SiReadthedocs,
   SiSonarcloud,
 } from 'react-icons/all';
-import { BadgeType } from './components/Badge';
+import { GIconType } from './img/GIcon';
 
 export type RepoType = {
   projectName: string;
   projectKey: string;
   description: string;
-  badges: BadgeType[];
+  icon?: GIconType;
   includes?: ReactNode[];
 };
 
@@ -29,6 +29,7 @@ export type SkeletonType = {
   projectKey: string;
   description: string;
   command: string;
+  icon?: GIconType;
   includes?: ReactNode[];
 };
 
@@ -45,6 +46,7 @@ const skeletonRepo: SkeletonType[] = [
     projectKey: 'skeleton-project',
     description: 'ExpressJS - Skeleton Project',
     command: 'gltool --template=express',
+    icon: 'KERNEL-M',
     includes: [
       'Typescript Project setup with GLX-Kernel',
       'Example Kernel',
@@ -71,6 +73,7 @@ const skeletonRepo: SkeletonType[] = [
     projectKey: 'electron-skeleton-project',
     description: 'ElectronJS - Skeleton Project',
     command: 'gltool --template=electron',
+    icon: 'E-KERNEL-M',
     includes: [
       'Typescript Project setup with GLX-E-Kernel',
       'Example Kernel',
@@ -95,14 +98,14 @@ const mainRepo: RepoType[] = [
     projectName: 'Core-Package',
     projectKey: 'core',
     description: 'Minimal dependency base kernel module',
-    badges: ['CORE'],
+    icon: 'CORE',
     includes: ['No other bundles', 'Only one dependecy'],
   },
   {
     projectName: 'Express-Package',
     projectKey: 'kernel',
     description: 'ExpressJS - Kernel module',
-    badges: ['KERNEL'],
+    icon: 'KERNEL',
     includes: [
       '@grandlinex/core',
       '@grandlinex/bundle-elogger',
@@ -115,7 +118,7 @@ const mainRepo: RepoType[] = [
     projectName: 'Electron-Package',
     projectKey: 'e-kernel',
     description: 'ElectronJS - Kernel module',
-    badges: ['E-KERNEL'],
+    icon: 'E-KERNEL',
     includes: [
       '@grandlinex/core',
       '@grandlinex/bundle-elogger',
@@ -217,19 +220,19 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
         projectName: 'Postgresql-Bundle',
         projectKey: 'bundle-postgresql',
         description: 'Postgresql support using pg',
-        badges: [],
+        icon: 'CORE-M',
       },
       {
         projectName: 'SQLight-Bundle',
         projectKey: 'bundle-sqlight',
         description: 'SQLight support using better-sqlite3',
-        badges: [],
+        icon: 'CORE-M',
       },
       {
         projectName: 'Redis-Bundle',
         projectKey: 'bundle-redis',
         description: 'Redis cache support using redis',
-        badges: [],
+        icon: 'CORE-M',
       },
     ],
   },
@@ -240,13 +243,13 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
         projectName: 'MultiLang-Bundle',
         projectKey: 'bundle-multilang',
         description: 'Multilang support for GrandLineX',
-        badges: [],
+        icon: 'CORE-M',
       },
       {
         projectName: 'Electron-Log-Bundle',
         projectKey: 'bundle-elogger',
         description: 'Advanced logging support using electron-log',
-        badges: [],
+        icon: 'CORE-M',
       },
     ],
   },
@@ -257,7 +260,7 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
         projectName: 'Simple-Auth-Bundle',
         projectKey: 'bundle-simple-auth',
         description: 'Authorization & user management bundle',
-        badges: [],
+        icon: 'KERNEL-M',
       },
     ],
   },
@@ -268,13 +271,11 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
         projectName: 'GLX-Project-Tool',
         projectKey: 'project-tool',
         description: 'Create and update GLX projects',
-        badges: [],
       },
       {
         projectName: 'Docs-to-OpenAPI',
         projectKey: 'docs-to-openapi',
         description: '@openapi annotation support for comment docs',
-        badges: [],
       },
     ],
   },
