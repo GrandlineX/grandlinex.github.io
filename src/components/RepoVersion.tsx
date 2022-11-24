@@ -17,7 +17,8 @@ const RepoVersion: React.FC<ContentProps> = (props) => {
           const json = await res.json();
 
           if (Array.isArray(json) && json.length > 0) {
-            setVersion(json[0].name);
+            console.log(json);
+            setVersion(json.find((c) => !c.name.startsWith('v'))?.name || '');
           }
         } catch (e) {
           console.error(e);

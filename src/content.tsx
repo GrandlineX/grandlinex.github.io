@@ -106,25 +106,14 @@ const mainRepo: RepoType[] = [
     projectKey: 'kernel',
     description: 'ExpressJS - Kernel module',
     icon: 'KERNEL',
-    includes: [
-      '@grandlinex/core',
-      '@grandlinex/bundle-elogger',
-      '@grandlinex/bundle-sqlight',
-      '@grandlinex/bundle-postgresql',
-      '@express.js',
-    ],
+    includes: ['@grandlinex/core', '@express.js'],
   },
   {
     projectName: 'Electron-Package',
     projectKey: 'e-kernel',
     description: 'ElectronJS - Kernel module',
     icon: 'E-KERNEL',
-    includes: [
-      '@grandlinex/core',
-      '@grandlinex/bundle-elogger',
-      '@grandlinex/bundle-sqlight',
-      '@electron.js',
-    ],
+    includes: ['@grandlinex/core', '@electron.js'],
   },
 ];
 
@@ -253,17 +242,19 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
       },
     ],
   },
-  {
-    cat: 'Express-Bundles',
-    repo: [
-      {
-        projectName: 'Simple-Auth-Bundle',
-        projectKey: 'bundle-simple-auth',
-        description: 'Authorization & user management bundle',
-        icon: 'KERNEL-M',
-      },
-    ],
-  },
+  /**
+   *   {
+   *     cat: 'Express-Bundles',
+   *     repo: [
+   *       {
+   *         projectName: 'Simple-Auth-Bundle',
+   *         projectKey: 'bundle-simple-auth',
+   *         description: 'Authorization & user management bundle',
+   *         icon: 'KERNEL-M',
+   *       },
+   *     ],
+   *   },
+   */
   {
     cat: 'Utils',
     repo: [
