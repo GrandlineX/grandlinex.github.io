@@ -48,6 +48,9 @@
     > * {
       padding: 2px;
     }
+    .title-content{
+      transform: translateY(-4px);
+    }
   }
 }
 .glx-content--row-smoke{
@@ -73,17 +76,20 @@
   ul {
     list-style-type: none;
   }
-  button{
-    padding: 8px;
-    background: transparent;
-    border: none;
-    font-family: 'IBM Plex Mono', sans-serif;
-    font-size: 20pt;
-    color: $glx-bg-dark;
-    cursor: pointer;
-  }
-  button:hover{
-    text-decoration: underline;
+  .glx-footer-icons{
+    a{
+      padding: 8px;
+      background: transparent;
+      border: none;
+      font-family: 'IBM Plex Mono', sans-serif;
+      font-size: 20pt;
+      color: $glx-bg-dark;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    a:hover{
+      text-decoration: underline;
+    }
   }
 }
 
@@ -114,10 +120,8 @@
     width: 100%;
   }
   .glx-button-grid{
-   display: flex;
-    height: 40px;
-    button{
-      flex-grow: 1;
+    gap: 48px;
+    a{
       color: $glx-bg-light;
       font-size: 20pt;
       background-color: transparent;
@@ -129,6 +133,12 @@
     position: absolute;
     top:12px;
     left: 12px;
+   }
+  .glx-repo--block-new{
+    position: absolute;
+    top:12px;
+    right: 12px;
+    font-weight: 800;
    }
 }
 .glx-description{
@@ -164,4 +174,8 @@ pre code{
 
 .glx-sandbox{
   width: 90%;
+}
+
+.glx-repo--app-verison{
+  cursor: pointer;
 }

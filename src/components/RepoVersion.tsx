@@ -1,35 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Grid } from '@grandlinex/react-components';
 
 type ContentProps = {
   projectKey: string;
 };
-
-const RepoVersion: React.FC<ContentProps> = (props) => {
-  const { projectKey } = props;
-  const [version, setVersion] = useState<string | null | undefined>(undefined);
-  useEffect(() => {
-    if (version === undefined) {
-      (async () => {
-        try {
-          const res = await fetch(
-            `https://api.github.com/repos/GrandlineX/${projectKey}/tags`
-          );
-          const json = await res.json();
-
-          if (Array.isArray(json) && json.length > 0) {
-            console.log(json);
-            setVersion(json.find((c) => !c.name.startsWith('v'))?.name || '');
-          }
-        } catch (e) {
-          console.error(e);
-          setVersion(null);
-        }
-      })();
-    }
-  });
+// [![GitHub](https://badge.fury.io/gh/grandlinex%2Fcore.svg)](https://github.com/GrandlineX/core)
+function RepoVersion({ projectKey }: ContentProps) {
   return (
-    <span className="glx-repo--app-verison">{version || 'no version'}</span>
+    <Grid className="glx-repo--app-verison">
+      <a href={`https://github.com/GrandlineX/${projectKey}`} target="__blank">
+        <img
+          alt=""
+          src={`https://badge.fury.io/gh/grandlinex%2F${projectKey}.svg`}
+        />
+      </a>
+    </Grid>
   );
-};
+}
 
 export default RepoVersion;

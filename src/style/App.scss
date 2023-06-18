@@ -70,7 +70,7 @@ code {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    button{
+    a{
       padding: 8px;
       background: transparent;
       border: none;
@@ -78,8 +78,9 @@ code {
       font-size: 20pt;
       color: $glx-bg-light;
       cursor: pointer;
+      text-decoration: none;
     }
-    button:hover{
+    a:hover{
       text-decoration: underline;
     }
   }

@@ -1,23 +1,22 @@
-const openNew = (
-  projectKey: string,
-  type: 'github' | 'docs' | 'sonar' | 'npm'
-) => {
+import { baseUrl, External } from '../content';
+
+function openNew(projectKey: string, type: External) {
   let url = '';
   switch (type) {
-    case 'sonar':
+    case External.sonar:
       url = `https://sonarcloud.io/project/overview?id=GrandlineX_${projectKey}`;
       break;
-    case 'github':
+    case External.github:
       url = `https://github.com/GrandlineX/${projectKey}`;
       break;
-    case 'docs':
-      url = `https://grandlinex.github.io/${projectKey}`;
+    case External.docs:
+      url = `${baseUrl}/${projectKey}`;
       break;
-    case 'npm':
+    case External.npm:
       url = `https://www.npmjs.com/package/@grandlinex/${projectKey}`;
       break;
     default:
   }
-  window.open(url, '_blank');
-};
+  return url;
+}
 export default openNew;

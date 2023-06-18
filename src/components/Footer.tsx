@@ -17,25 +17,48 @@ const Footer: React.FC<any> = (props) => {
             ))}
         </ul>
       </div>
-      <div className="glx--only-on-desktop">
+      <div className="glx--only-on-desktop glx-footer-icons">
         {menuItems
           .filter((menu) => menu.mobile)
-          .map((menu) => {
+          .map(({ mobile, name, url, icon }) => {
             return (
-              <button
-                type="button"
-                onClick={() => window.open(menu.url, '_blank')}
+              <a
+                className={
+                  mobile ? 'glx--only-on-desktop' : 'glx--hide-on-mobile'
+                }
+                href={url}
+                target="_blank"
+                title={name}
+                rel="noreferrer"
               >
-                {menu.name}
-              </button>
+                {icon || name}
+              </a>
             );
           })}
       </div>
       <div>
         <ul>
-          <li>©GrandLineX</li>
+          <li>GrandLineX</li>
           <li>
             <a href="https://github.com/Elschnagoo">@ElSchnagoo</a>
+          </li>
+          <li>
+            <a href="mailto:info@grandlinex.com">@Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/GrandlineX/grandlinex.github.io"
+              target="__blank"
+            >
+              <img
+                alt=""
+                src="https://badge.fury.io/gh/grandlinex%2Fgrandlinex.github.io.svg"
+              />
+            </a>
           </li>
         </ul>
       </div>

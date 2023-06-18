@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AiOutlineCodeSandbox } from 'react-icons/all';
+import { AiOutlineCodeSandbox } from 'react-icons/ai';
 import {
   ContentSpace,
   Footer,
@@ -12,10 +12,10 @@ import ContentRow from './components/ContentRow';
 import FeatureBlock from './components/FeatureBlock';
 import FeatureBlockItem from './components/FeatureBlockItem';
 import { feature, mainRepo, otherRepo, skeletonRepo } from './content';
-import SkeletonBlockItem from './components/SkeletonBlockItem';
 import GIcon, { GIconType } from './img/GIcon';
+import '@grandlinex/react-components/style/style.scss';
 
-const Content: React.FC<any> = (props) => {
+function Content() {
   return (
     <>
       <ContentSpace />
@@ -78,7 +78,7 @@ const Content: React.FC<any> = (props) => {
       >
         <RepoBlock>
           {skeletonRepo.map((repo) => (
-            <SkeletonBlockItem item={repo} />
+            <RepoBlockItem item={repo} />
           ))}
         </RepoBlock>
       </ContentRow>
@@ -99,8 +99,8 @@ const Content: React.FC<any> = (props) => {
       ))}
     </>
   );
-};
-const App: React.FC<any> = (props) => {
+}
+function App() {
   const [ico, setIco] = useState<number>(0);
   const iList: GIconType[] = [
     'LOGO-TRANS',
@@ -146,6 +146,6 @@ const App: React.FC<any> = (props) => {
       <Footer />
     </>
   );
-};
+}
 
 export default App;

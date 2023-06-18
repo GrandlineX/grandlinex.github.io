@@ -10,13 +10,17 @@ export type GIconType =
   | 'LOGO-TRANS'
   | 'LOGO-ALT-TRANS';
 
-const GIcon: React.FC<{
+function GIcon({
+  type,
+  width,
+  height,
+  dark,
+}: {
   type?: GIconType;
   width?: string;
   height?: string;
   dark?: boolean;
-}> = (props) => {
-  const { type, width, height, dark } = props;
+}) {
   let ico;
   const smoke = '#F2F3F4';
   const bg = '#505B6B';
@@ -289,8 +293,8 @@ const GIcon: React.FC<{
       );
       break;
   }
-  return <>{ico}</>;
-};
+  return ico;
+}
 GIcon.defaultProps = {
   type: undefined,
   width: undefined,

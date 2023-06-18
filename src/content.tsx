@@ -1,36 +1,39 @@
 import React, { ReactNode } from 'react';
 
+import { HiOutlineDatabase } from 'react-icons/hi';
 import {
-  AiOutlineCode,
-  BsCodeSquare,
-  BsReverseLayoutTextSidebarReverse,
-  FaGithub,
-  GiCardboardBox,
-  HiOutlineDatabase,
-  IoKeyOutline,
-  RiFileSettingsLine,
-  RiToolsLine,
   SiDatabricks,
+  SiReact,
   SiReadthedocs,
   SiSonarcloud,
-} from 'react-icons/all';
+} from 'react-icons/si';
+import {
+  BsCodeSquare,
+  BsReverseLayoutTextSidebarReverse,
+} from 'react-icons/bs';
+import { IoKeyOutline } from 'react-icons/io5';
+import { GiCardboardBox } from 'react-icons/gi';
+import { AiOutlineCode } from 'react-icons/ai';
+import { RiFileSettingsLine, RiToolsLine } from 'react-icons/ri';
+import { FaGithub } from 'react-icons/fa';
 import { GIconType } from './img/GIcon';
 
+export enum External {
+  'github' = 'github',
+  'docs' = 'docs',
+  'sonar' = 'sonar',
+  'npm' = 'npm',
+}
 export type RepoType = {
   projectName: string;
   projectKey: string;
   description: string;
-  icon?: GIconType;
+  newRepo?: boolean;
+  icon?: GIconType | ReactNode;
+  cmd?: string;
   includes?: ReactNode[];
-};
-
-export type SkeletonType = {
-  projectName: string;
-  projectKey: string;
-  description: string;
-  command: string;
-  icon?: GIconType;
-  includes?: ReactNode[];
+  disableLink?: External[];
+  customLink?: { type: External; url: string }[];
 };
 
 export type FeatureType = {
@@ -40,12 +43,14 @@ export type FeatureType = {
   dots: ReactNode[];
 };
 
-const skeletonRepo: SkeletonType[] = [
+export const baseUrl = 'https://www.grandlinex.com';
+
+const skeletonRepo: RepoType[] = [
   {
     projectName: 'Express-Skeleton',
     projectKey: 'skeleton-project',
     description: 'ExpressJS - Skeleton Project',
-    command: 'gltool --template=express',
+    cmd: 'gltool --template=express',
     icon: 'KERNEL-M',
     includes: [
       'Typescript Project setup with GLX-Kernel',
@@ -60,19 +65,20 @@ const skeletonRepo: SkeletonType[] = [
         Clone the repository or use the{' '}
         <a
           target="_blank"
-          href="https://grandlinex.github.io/docs/utils/#project-tool"
+          href={`${baseUrl}/docs/utils/#project-tool`}
           rel="noreferrer"
         >
           project-tool
         </a>
       </>,
     ],
+    disableLink: [External.sonar, External.npm, External.docs],
   },
   {
     projectName: 'Electron-Skeleton',
     projectKey: 'electron-skeleton-project',
     description: 'ElectronJS - Skeleton Project',
-    command: 'gltool --template=electron',
+    cmd: 'gltool --template=electron',
     icon: 'E-KERNEL-M',
     includes: [
       'Typescript Project setup with GLX-E-Kernel',
@@ -84,13 +90,14 @@ const skeletonRepo: SkeletonType[] = [
         Clone the repository or use the{' '}
         <a
           target="_blank"
-          href="https://grandlinex.github.io/docs/utils/#project-tool"
+          href={`${baseUrl}/docs/utils/#project-tool`}
           rel="noreferrer"
         >
           project-tool
         </a>
       </>,
     ],
+    disableLink: [External.sonar, External.npm, External.docs],
   },
 ];
 const mainRepo: RepoType[] = [
@@ -114,6 +121,15 @@ const mainRepo: RepoType[] = [
     description: 'ElectronJS - Kernel module',
     icon: 'E-KERNEL',
     includes: ['@grandlinex/core', '@electron.js'],
+  },
+  {
+    newRepo: true,
+    projectName: 'React-Components',
+    projectKey: 'react-components',
+    description: 'React-Component library',
+    icon: <SiReact size={36} />,
+    includes: ['react.js', '@grandlinex/react-icons'],
+    disableLink: [External.sonar],
   },
 ];
 
@@ -242,19 +258,6 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
       },
     ],
   },
-  /**
-   *   {
-   *     cat: 'Express-Bundles',
-   *     repo: [
-   *       {
-   *         projectName: 'Simple-Auth-Bundle',
-   *         projectKey: 'bundle-simple-auth',
-   *         description: 'Authorization & user management bundle',
-   *         icon: 'KERNEL-M',
-   *       },
-   *     ],
-   *   },
-   */
   {
     cat: 'Utils',
     repo: [
@@ -262,18 +265,37 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
         projectName: 'GLX-Project-Tool',
         projectKey: 'project-tool',
         description: 'Create and update GLX projects',
+        disableLink: [External.sonar],
+        customLink: [
+          {
+            type: External.docs,
+            url: `${baseUrl}/docs/utils/#project-tool`,
+          },
+        ],
       },
       {
         projectName: 'Docs-to-OpenAPI',
         projectKey: 'docs-to-openapi',
         description: '@openapi annotation support for comment docs',
+        disableLink: [External.sonar],
+        customLink: [
+          {
+            type: External.docs,
+            url: `${baseUrl}/docs/utils/#docs-to-openapi-v3`,
+          },
+        ],
       },
     ],
   },
 ];
 
-const menuItems: { name: ReactNode; url: string; mobile?: boolean }[] = [
-  { name: 'Docs', url: 'https://grandlinex.github.io/docs/' },
+const menuItems: {
+  name: string;
+  url: string;
+  mobile?: boolean;
+  icon?: ReactNode;
+}[] = [
+  { name: 'Docs', url: `${baseUrl}/docs/` },
   { name: 'Projects', url: 'https://github.com/GrandlineX/' },
   {
     name: 'Report',
@@ -281,13 +303,20 @@ const menuItems: { name: ReactNode; url: string; mobile?: boolean }[] = [
   },
   // Mobile
   {
-    name: <SiReadthedocs />,
-    url: 'https://grandlinex.github.io/docs/',
+    name: 'Docs',
+    icon: <SiReadthedocs />,
+    url: `${baseUrl}/docs/`,
     mobile: true,
   },
-  { name: <FaGithub />, url: 'https://github.com/GrandlineX/', mobile: true },
   {
-    name: <SiSonarcloud />,
+    name: 'Projects',
+    icon: <FaGithub />,
+    url: 'https://github.com/GrandlineX/',
+    mobile: true,
+  },
+  {
+    name: 'Report',
+    icon: <SiSonarcloud />,
     url: 'https://sonarcloud.io/organizations/grandlinex/projects',
     mobile: true,
   },

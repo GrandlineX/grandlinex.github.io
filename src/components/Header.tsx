@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { Grid } from '@grandlinex/react-components';
 import { menuItems } from '../content';
 import GIcon from '../img/GIcon';
 
@@ -10,17 +11,19 @@ const Header: React.FC<any> = (props) => {
           GrandLine <GIcon type="LOGO-TRANS" height="40px" />
         </h1>
       </div>
-      <div className="glx-header--content-right">
-        {menuItems.map(({ name, url, mobile }) => (
-          <button
+      <Grid flex flexR vCenter className="glx-header--content-right">
+        {menuItems.map(({ name, url, mobile, icon }) => (
+          <a
             className={mobile ? 'glx--only-on-desktop' : 'glx--hide-on-mobile'}
-            type="button"
-            onClick={() => window.open(url, '_blank')}
+            href={url}
+            target="_blank"
+            title={name}
+            rel="noreferrer"
           >
-            {name}
-          </button>
+            {icon || name}
+          </a>
         ))}
-      </div>
+      </Grid>
     </div>
   );
 };
