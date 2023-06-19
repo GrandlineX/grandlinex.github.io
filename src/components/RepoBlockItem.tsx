@@ -10,12 +10,14 @@ import GIcon, { GIconType } from '../img/GIcon';
 
 function ConditionalLink({
   projectKey,
+  projectGroup,
   type,
   children,
   disableLink,
   customLink,
 }: {
   projectKey: string;
+  projectGroup?: string;
   type: External;
   children: React.ReactNode;
   disableLink?: External[];
@@ -28,10 +30,11 @@ function ConditionalLink({
     <a
       href={
         customLink?.find((e) => e.type === type)?.url ||
-        openNew(projectKey, type)
+        openNew(projectKey, type, projectGroup)
       }
       title={`Open ${type} page`}
-      target="__blank"
+      target="_blank"
+      rel="noreferrer"
     >
       {children}
     </a>
@@ -39,6 +42,7 @@ function ConditionalLink({
 }
 ConditionalLink.defaultProps = {
   disableLink: undefined,
+  projectGroup: undefined,
   customLink: undefined,
 };
 
@@ -48,6 +52,9 @@ function RepoBlockItem({ item }: { item: RepoType }) {
     description,
     newRepo,
     projectName,
+    image,
+    projectGroup,
+    noCMD,
     icon,
     includes,
     cmd,
@@ -71,12 +78,15 @@ function RepoBlockItem({ item }: { item: RepoType }) {
 
       <Grid flex flexR className="glx-mono" vCenter gap={12}>
         <Grid>Latest version:</Grid>
-        <RepoVersion projectKey={projectKey} />
+        <RepoVersion projectKey={projectKey} projectGroup={projectGroup} />
       </Grid>
+      {image ? <img width="100%" src={image} alt={projectName} /> : null}
       <p className="glx-description">{description}</p>
-      <pre className="glx--hide-on-mobile">
-        <code>$ {cmd || `npm i @grandlinex/${projectKey}`} </code>
-      </pre>
+      {!noCMD ? (
+        <pre className="glx--hide-on-mobile">
+          <code>$ {cmd || `npm i @grandlinex/${projectKey}`} </code>
+        </pre>
+      ) : null}
       {includes ? <p className="glx-description">Includes:</p> : null}
       <ul>
         {includes?.map((dot) => (
@@ -90,6 +100,7 @@ function RepoBlockItem({ item }: { item: RepoType }) {
         <Grid flex hCenter className="glx-button-grid">
           <ConditionalLink
             projectKey={projectKey}
+            projectGroup={projectGroup}
             type={External.github}
             disableLink={disableLink}
             customLink={customLink}
@@ -98,6 +109,7 @@ function RepoBlockItem({ item }: { item: RepoType }) {
           </ConditionalLink>
           <ConditionalLink
             projectKey={projectKey}
+            projectGroup={projectGroup}
             type={External.npm}
             disableLink={disableLink}
             customLink={customLink}
@@ -106,6 +118,7 @@ function RepoBlockItem({ item }: { item: RepoType }) {
           </ConditionalLink>
           <ConditionalLink
             projectKey={projectKey}
+            projectGroup={projectGroup}
             type={External.docs}
             disableLink={disableLink}
             customLink={customLink}
@@ -114,6 +127,7 @@ function RepoBlockItem({ item }: { item: RepoType }) {
           </ConditionalLink>
           <ConditionalLink
             projectKey={projectKey}
+            projectGroup={projectGroup}
             type={External.sonar}
             disableLink={disableLink}
             customLink={customLink}

@@ -52,7 +52,8 @@ const Footer: React.FC<any> = (props) => {
           <li>
             <a
               href="https://github.com/GrandlineX/grandlinex.github.io"
-              target="__blank"
+              target="_blank"
+              rel="noreferrer"
             >
               <img
                 alt=""

@@ -27,10 +27,13 @@ export enum External {
 export type RepoType = {
   projectName: string;
   projectKey: string;
+  projectGroup?: string;
   description: string;
   newRepo?: boolean;
+  image?: string;
   icon?: GIconType | ReactNode;
   cmd?: string;
+  noCMD?: boolean;
   includes?: ReactNode[];
   disableLink?: External[];
   customLink?: { type: External; url: string }[];
@@ -282,6 +285,27 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
           {
             type: External.docs,
             url: `${baseUrl}/docs/utils/#swagger-mate`,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    cat: 'Demo',
+    repo: [
+      {
+        projectName: 'XServer',
+        projectKey: 'xserver',
+        projectGroup: 'elschnagoo',
+        description: ' GrandLineX Full Stack Demo Project - Video Server',
+        image:
+          'https://github.com/Elschnagoo/XServer/blob/master/img/img_1.png?raw=true',
+        disableLink: [External.sonar, External.npm],
+        noCMD: true,
+        customLink: [
+          {
+            type: External.docs,
+            url: `https://hub.docker.com/r/elschnagoo/xserver`,
           },
         ],
       },

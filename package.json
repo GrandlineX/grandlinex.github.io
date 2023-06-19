@@ -1,6 +1,6 @@
 {
   "name": "grandlinex.github.io",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "private": true,
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
