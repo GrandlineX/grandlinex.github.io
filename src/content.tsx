@@ -274,14 +274,14 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
         ],
       },
       {
-        projectName: 'Docs-to-OpenAPI',
-        projectKey: 'docs-to-openapi',
-        description: '@openapi annotation support for comment docs',
-        disableLink: [External.sonar],
+        projectName: 'Swagger-Mate',
+        projectKey: 'swagger-mate',
+        description: 'Build OpenAPI v3 from your code',
+        disableLink: [],
         customLink: [
           {
             type: External.docs,
-            url: `${baseUrl}/docs/utils/#docs-to-openapi-v3`,
+            url: `${baseUrl}/docs/utils/#swagger-mate`,
           },
         ],
       },
