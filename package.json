@@ -1,6 +1,6 @@
 {
   "name": "grandlinex.github.io",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@grandlinex/react-components": "^0.1.2",
+    "@react-spring/parallax": "^9.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",

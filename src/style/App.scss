@@ -1,10 +1,22 @@
 @import "Color";
+@import "@grandlinex/react-components/style/style";
 @import "Constants";
 @import "Components";
 @import "Font";
+@import "Header";
+@import "Preiview";
+@import "ContentRow";
+@import "FeatureBlock";
+@import "annimation";
+@import "fading";
+
+
+
 .max-frame{
   height: 100%;
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 html{
@@ -19,9 +31,17 @@ html{
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  overflow: hidden;
+ }
+.module{
+  @extend .max-frame;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
   overflow: scroll;
   overflow-x: hidden;
- }
+  --glx-main-text: #505B6B;
+}
 
 #root::-webkit-scrollbar {
   width: 0;  /* Remove scrollbar space */
@@ -43,62 +63,6 @@ code {
   monospace;
 }
 
-.glx-header{
-  z-index: 1000;
-  .glx-header--content-left{
-   h1{
-      position: absolute;
-      left: 5px;
-      font-family: 'IBM Plex Mono', sans-serif;
-      font-weight: bold;
-      font-size: 26pt;
-    }
-    svg{
-      position: absolute;
-      left: 190px;
-      top: 4px;
-    }
-    @extend .max-frame;
-     width: 200px;
-  }
-  .glx-header--content-right{
-    @extend .max-frame;
-    position: absolute;
-    width: 500px;
-    top:0;
-    right: 14px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    a{
-      padding: 8px;
-      background: transparent;
-      border: none;
-      font-family: 'IBM Plex Mono', sans-serif;
-      font-size: 20pt;
-      color: $glx-bg-light;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    a:hover{
-      text-decoration: underline;
-    }
-  }
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: $header-size;
-  border-bottom: 1px;
-  border-bottom-style: solid;
-  border-color: black;
-  color: $glx-bg-light;
-  background-color: $glx-bg-dark;
-}
-.glx-content--spacer-header{
-  width: 100%;
-  height: $header-size;
-}
 .glx-card-footer{
   bottom: 8px;
   position: absolute;
@@ -131,3 +95,44 @@ a,a:active{
     display: none;
   }
 }
+
+.app{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.headline{
+  padding-top: 100px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: $glx-bg-dark;
+  height: $fron-size;
+}
+
+.content-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  // outline: 1px solid red;
+}
+.content-center-rel{
+  @extend .content-center;
+    position: relative;
+}
+
+.content-start{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  // outline: 1px solid red;
+}
+
+

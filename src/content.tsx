@@ -5,7 +5,7 @@ import {
   SiDatabricks,
   SiReact,
   SiReadthedocs,
-  SiSonarcloud,
+  SiElectron,
 } from 'react-icons/si';
 import {
   BsCodeSquare,
@@ -16,7 +16,9 @@ import { GiCardboardBox } from 'react-icons/gi';
 import { AiOutlineCode } from 'react-icons/ai';
 import { RiFileSettingsLine, RiToolsLine } from 'react-icons/ri';
 import { FaGithub } from 'react-icons/fa';
+import { IOGridOutline } from '@grandlinex/react-components';
 import { GIconType } from './img/GIcon';
+import { Page } from './routing';
 
 export enum External {
   'github' = 'github',
@@ -137,6 +139,21 @@ const mainRepo: RepoType[] = [
 ];
 
 const feature: FeatureType[] = [
+  {
+    name: 'Build your own App',
+    icon: <SiElectron />,
+    description: `Build build your own Backend or Desktop App.`,
+    dots: [
+      'Revolutionizing cross-platform development',
+      'Use the GLX-Kernel to build your own API with the GLX-Toolbox and ExpressJS',
+      'Use the Electron-GLX-Kernel to build your own  Desktop App.',
+      'Combines the power of Electron.js and the flexibility of Express.js for your apps',
+      'Seamless and efficient development experience',
+      'Create robust and scalable applications for multiple platforms',
+      'Simplifies and accelerates the development of desktop  and backend applications',
+      'Transforming the way we build applications',
+    ],
+  },
   {
     name: 'Entity Model (ORM)',
     icon: <HiOutlineDatabase />,
@@ -315,10 +332,18 @@ const otherRepo: { cat: string; repo: RepoType[] }[] = [
 
 const menuItems: {
   name: string;
-  url: string;
+  url?: string;
+  page?: Page;
   mobile?: boolean;
   icon?: ReactNode;
 }[] = [
+  { name: 'Packages', page: Page.Packages },
+  {
+    name: 'Packages',
+    icon: <IOGridOutline />,
+    page: Page.Packages,
+    mobile: true,
+  },
   { name: 'Docs', url: `${baseUrl}/docs/` },
   { name: 'Projects', url: 'https://github.com/GrandlineX/' },
   {
@@ -336,12 +361,6 @@ const menuItems: {
     name: 'Projects',
     icon: <FaGithub />,
     url: 'https://github.com/GrandlineX/',
-    mobile: true,
-  },
-  {
-    name: 'Report',
-    icon: <SiSonarcloud />,
-    url: 'https://sonarcloud.io/organizations/grandlinex/projects',
     mobile: true,
   },
 ];

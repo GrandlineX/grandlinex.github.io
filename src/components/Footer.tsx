@@ -1,9 +1,10 @@
 import React from 'react';
+import { cnx } from '@grandlinex/react-components';
 import { menuItems } from '../content';
 
-const Footer: React.FC<any> = (props) => {
+function Footer({ rel }: { rel: boolean }) {
   return (
-    <div className="glx-footer">
+    <div className={cnx('glx-footer', [rel, 'glx-footer-rel'])}>
       <div className="glx--hide-on-mobile">
         <ul>
           {menuItems
@@ -65,6 +66,6 @@ const Footer: React.FC<any> = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default Footer;

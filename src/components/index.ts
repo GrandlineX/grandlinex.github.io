@@ -4,7 +4,6 @@ import ContentRow from './ContentRow';
 import ContentSpace from './ContentSpace';
 import RepoBlock from './RepoBlock';
 import RepoBlockItem from './RepoBlockItem';
-import FeatureBlock from './FeatureBlock';
 import FeatureBlockItem from './FeatureBlockItem';
 
 export {
@@ -14,6 +13,5 @@ export {
   ContentRow,
   RepoBlock,
   RepoBlockItem,
-  FeatureBlock,
   FeatureBlockItem,
 };

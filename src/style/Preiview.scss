@@ -1,0 +1,19 @@
+
+// PREVIEW
+.glx-preview{
+  height: 100%;
+  width: 100%;
+  background-color: $glx-bg-dark;
+  color: $glx-light-accent01;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .glx-mono {
+    padding-top: 40px;
+    font-size: 20pt;
+    text-align: center;
+  }
+}

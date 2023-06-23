@@ -1,0 +1,38 @@
+
+.glx-content--row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+
+  hr{
+    width: calc(100% - 24px);
+  }
+  > div{
+    margin: 0;
+    min-width: calc(100% - 24px);
+  }
+  > h2{
+    margin: 0;
+    min-width: 75%;
+  }
+  .title{
+    padding-top: 8px;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 24pt;
+    font-weight: bold;
+    > * {
+      padding: 2px;
+    }
+    .title-content{
+      transform: translateY(-4px);
+    }
+  }
+}
+.glx-content--row-smoke{
+  background: $glx-bg-light;
+}

@@ -1,0 +1,39 @@
+
+.glx-feature--block-item{
+  // outline: 1px solid saddlebrown;
+  min-width: 600px;
+  width: 60%;
+  max-width: 1600px;
+  padding: 24px;
+  margin: 10px;
+
+  background-color: rgba(229, 229, 229, 0.9);
+  outline: 1px solid $main-text;
+  border-radius: 16px;
+
+  h2{
+    @extend .glx-my-2;
+    font-size: 42pt;
+  }
+  .glx-icon{
+    margin: 8px;
+    text-align: center;
+    font-size: 160pt;
+    // outline: 1px solid blueviolet;
+  }
+  .glx-description--text{
+    font-size: 14pt;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .glx-feature--block-item{
+    min-width: unset;
+    width: 100%;
+    h2{
+      @extend .glx-my-2;
+      font-size: 36pt;
+    }
+  }
+}
