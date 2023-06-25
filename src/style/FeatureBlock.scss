@@ -35,5 +35,8 @@
       @extend .glx-my-2;
       font-size: 36pt;
     }
+    .glx--hide-on-mobile{
+      display: none;
+    }
   }
 }

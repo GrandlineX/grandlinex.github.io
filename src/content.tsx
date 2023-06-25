@@ -11,12 +11,11 @@ import {
   BsCodeSquare,
   BsReverseLayoutTextSidebarReverse,
 } from 'react-icons/bs';
-import { IoKeyOutline } from 'react-icons/io5';
+import { IoKeyOutline, IoGridOutline } from 'react-icons/io5';
 import { GiCardboardBox } from 'react-icons/gi';
 import { AiOutlineCode } from 'react-icons/ai';
 import { RiFileSettingsLine, RiToolsLine } from 'react-icons/ri';
 import { FaGithub } from 'react-icons/fa';
-import { IOGridOutline } from '@grandlinex/react-components';
 import { GIconType } from './img/GIcon';
 import { Page } from './routing';
 
@@ -144,14 +143,13 @@ const feature: FeatureType[] = [
     icon: <SiElectron />,
     description: `Build build your own Backend or Desktop App.`,
     dots: [
-      'Revolutionizing cross-platform development',
+      'Cross-platform development',
       'Use the GLX-Kernel to build your own API with the GLX-Toolbox and ExpressJS',
       'Use the Electron-GLX-Kernel to build your own  Desktop App.',
       'Combines the power of Electron.js and the flexibility of Express.js for your apps',
       'Seamless and efficient development experience',
       'Create robust and scalable applications for multiple platforms',
       'Simplifies and accelerates the development of desktop  and backend applications',
-      'Transforming the way we build applications',
     ],
   },
   {
@@ -340,7 +338,7 @@ const menuItems: {
   { name: 'Packages', page: Page.Packages },
   {
     name: 'Packages',
-    icon: <IOGridOutline />,
+    icon: <IoGridOutline />,
     page: Page.Packages,
     mobile: true,
   },
